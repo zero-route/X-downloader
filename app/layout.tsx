@@ -1,0 +1,25 @@
+import type { Metadata, Viewport } from "next";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "XFlow - X Downloader",
+  description: "Unduh video, GIF, dan foto dari X (Twitter) dengan cepat dan mudah.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0b0b0c",
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="id">
+      <body>{children}</body>
+    </html>
+  );
+}
