@@ -486,29 +486,56 @@ a {
   right: 10px;
 }
 
-.dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
+.pager {
   display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 0 12px;
+  gap: 12px;
+}
+
+.pager-btn {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  color: var(--silver-light);
+  font-size: 1.4rem;
+  line-height: 1;
+  padding-bottom: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.pager-btn:hover {
+  background: var(--surface-raised);
+  border-color: var(--silver-deep);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
 .dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.45);
+  box-sizing: content-box;
+  width: 8px;
+  height: 8px;
+  padding: 8px 3px;
+  border-radius: 999px;
+  background: #4a4b4f;
+  background-clip: content-box;
+  transition: width 0.15s, background-color 0.15s;
 }
 
 .dot.active {
-  width: 18px;
-  border-radius: 999px;
+  width: 20px;
   background: var(--silver-light);
+  background-clip: content-box;
 }
 
 .actions {
