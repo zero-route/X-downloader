@@ -804,12 +804,9 @@ export default function Home() {
                   <span className="name">{displayName}</span>
                   {data.author.verified && <VerifiedIcon />}
                 </strong>
-                {username && (
-                  <span>
-                    @{username}
-                    {data.author.followers !== null &&
-                      ` · ${formatCount(data.author.followers)} pengikut`}
-                  </span>
+                {username && <span>@{username}</span>}
+                {data.author.followers !== null && (
+                  <span>{formatCount(data.author.followers)} pengikut</span>
                 )}
               </div>
 
@@ -827,7 +824,7 @@ export default function Home() {
             </div>
 
             {statList.length > 0 && (
-              <div className="stats">
+              <div className={`stats stats-${statList.length}`}>
                 {statList.map((stat) => (
                   <div className="stat" key={stat.key}>
                     <div className="stat-top">
