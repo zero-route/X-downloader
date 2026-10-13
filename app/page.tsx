@@ -451,6 +451,11 @@ export default function Home() {
   function onTouchEnd(event: React.TouchEvent) {
     if (touchStart.current === null) return;
 
+    if (playingVideo) {
+      touchStart.current = null;
+      return;
+    }
+
     const delta = event.changedTouches[0].clientX - touchStart.current;
 
     touchStart.current = null;
@@ -683,39 +688,63 @@ export default function Home() {
                     {slide + 1} / {items.length}
                   </span>
 
-                  <button
-                    type="button"
-                    className="nav nav-left"
-                    onClick={() => goTo(slide - 1)}
-                    aria-label="Sebelumnya"
-                  >
-                    ‹
-                  </button>
-                  <button
-                    type="button"
-                    className="nav nav-right"
-                    onClick={() => goTo(slide + 1)}
-                    aria-label="Berikutnya"
-                  >
-                    ›
-                  </button>
-
                   {!playingVideo && (
-                    <div className="dots">
-                      {items.map((_, index) => (
-                        <button
-                          key={index}
-                          type="button"
-                          className={index === slide ? "dot active" : "dot"}
-                          onClick={() => goTo(index)}
-                          aria-label={`Item ${index + 1}`}
-                        />
-                      ))}
-                    </div>
+                    <>
+                      <button
+                        type="button"
+                        className="nav nav-left"
+                        onClick={() => goTo(slide - 1)}
+                        aria-label="Sebelumnya"
+                      >
+                        ‹
+                      </button>
+                      <button
+                        type="button"
+                        className="nav nav-right"
+                        onClick={() => goTo(slide + 1)}
+                        aria-label="Berikutnya"
+                      >
+                        ›
+                      </button>
+                    </>
                   )}
                 </>
               )}
             </div>
+
+            {multiple && (
+              <div className="pager">
+                <button
+                  type="button"
+                  className="pager-btn"
+                  onClick={() => goTo(slide - 1)}
+                  aria-label="Sebelumnya"
+                >
+                  ‹
+                </button>
+
+                <div className="dots">
+                  {items.map((_, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      className={index === slide ? "dot active" : "dot"}
+                      onClick={() => goTo(index)}
+                      aria-label={`Item ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  type="button"
+                  className="pager-btn"
+                  onClick={() => goTo(slide + 1)}
+                  aria-label="Berikutnya"
+                >
+                  ›
+                </button>
+              </div>
+            )}
 
             {qualities.length > 1 && (
               <div className="qualities" role="radiogroup" aria-label="Kualitas video">
