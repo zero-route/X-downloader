@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "XFlow - X Downloader",
   description: "Unduh video, GIF, dan foto dari X (Twitter) dengan cepat dan mudah.",
   icons: {
-    icon: "/logo.png", 
-    shortcut: "/logo.png", 
-    apple: "/logo.png", 
+    icon: "/icon.png", 
+    shortcut: "/icon.png", 
+    apple: "/icon.png", 
   }, 
 };
 
