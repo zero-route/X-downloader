@@ -140,6 +140,10 @@ a {
   border-color: var(--silver);
 }
 
+.field:focus-within .field-icon {
+  color: var(--silver);
+}
+
 .field-icon {
   display: flex;
   flex-shrink: 0;
