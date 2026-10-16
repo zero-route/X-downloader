@@ -15,6 +15,8 @@
   --silver: #c8cbd0;
   --silver-light: #e9ebee;
   --silver-deep: #9fa4ac;
+  --brand: linear-gradient(110deg, #f4f4f5 0%, #c8cbd0 42%, #e9ebee 78%, #9fa4ac 100%);
+
 }
 
 * {
@@ -81,7 +83,10 @@ a {
 }
 
 .brand {
-  color: var(--text);
+  background: var(--brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: -0.04em;
